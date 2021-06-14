@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <div class="jumbotron text-center">
+            <h1>Learn some stuff about Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">--retreive fax--</a></p>
+    </div>
+    <h1>Latest Mars News</h1>
+    <h3>{{  red_planet.newest_headline  }}</h3>
+    <p>{{ red_planet.newest_summary  }}</p>
+    <h1>Featured Image</h1>
+    <img src="{{  red_planet.mars_image_location  }}" alt='Featured image'>
+    <h1>Compared to Earth:</h1>
+    <table class="table">
+        <embed type ="text/html" src ='{{  red_planet.mars_facts }}' width="500" height="700" >
+    </table>
+    <h1>Mars Hemispheres</h1>
+    
+</body>
+
+
+</html>
