@@ -84,10 +84,17 @@ def scrape_mars():
 
     #get tables from the table url
     tables = pd.read_html(facts_url)
-    tables = pd.DataFrame(tables)
-    tables= tables.to_html()
+    tables = pd.DataFrame(tables[0])
 
-    mars_info_dict.update({'mars_facts':tables})
+    row_list = []
+    for row, col in tables.iterrows():
+        ls = col.tolist()
+        row_list.append(ls)
+
+
+    mars_info_dict.update({'mars_table': row_list})
+
+
     # In[11]:
 
 
@@ -108,7 +115,7 @@ def scrape_mars():
         soup = BeautifulSoup(html, 'html.parser')
         fs_img = soup.find('img',class_='wide-image')
         fs_img_link = fs_img['src']
-        hemi_dict = {'hemishpere name': name ,'image_url':hemis_url + fs_img_link}
+        hemi_dict = {'hemishpere_name': name ,'image_url':hemis_url + fs_img_link}
         hemispheres_list.append(hemi_dict)
     hemispheres_list
 

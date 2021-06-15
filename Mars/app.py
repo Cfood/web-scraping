@@ -19,7 +19,7 @@ def home():
 
 @app.route('/scrape')
 def scrape():
-    
+
     mars_data = scrapin_mars.scrape_mars()
 
     mongo.db.collection.update({}, mars_data, upsert=True)

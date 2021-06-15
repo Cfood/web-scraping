@@ -19,13 +19,41 @@
     <h3>{{  red_planet.newest_headline  }}</h3>
     <p>{{ red_planet.newest_summary  }}</p>
     <h1>Featured Image</h1>
-    <img src="{{  red_planet.mars_image_location  }}" alt='Featured image'>
+    <img src="{{  red_planet.mars_image_location  }}" alt='Featured image' class="col-md-6">
     <h1>Compared to Earth:</h1>
-    <table class="table">
-        <embed type ="text/html" src ='{{  red_planet.mars_facts }}' width="500" height="700" >
-    </table>
-    <h1>Mars Hemispheres</h1>
-    
+    <div class='table-responsive'>
+        <table class="table">
+            <tr>
+                {% for item in red_planet.mars_table[0] %}
+                <th>{{ item }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for item in red_planet.mars_table[1] %}
+                <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <h1 class="text-center" >Mars Hemispheres</h1>
+    <div class=row>    
+        <div class="col-md-3">
+            <img src="{{  red_planet.hemispheres[0].image_url  }}" width='200' height='200'>
+            <h3>{{ red_planet.hemispheres[0].hemishpere_name  }}</h3>
+        </div>
+        <div class="col-md-3">
+            <img src="{{  red_planet.hemispheres[1].image_url  }}" width='200' height='200'>
+            <h3>{{ red_planet.hemispheres[1].hemishpere_name  }}</h3>
+        </div>
+        <div class="col-md-3">
+            <img src="{{  red_planet.hemispheres[2].image_url  }}" width='200' height='200'>
+            <h3>{{ red_planet.hemispheres[2].hemishpere_name  }}</h3>
+        </div>
+        <div class="col-md-3">
+            <img src="{{  red_planet.hemispheres[3].image_url  }}" width='200' height='200'>
+            <h3>{{ red_planet.hemispheres[3].hemishpere_name  }}</h3>
+        </div>
+    </div>
 </body>
 
 
